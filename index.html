@@ -4,12 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   <title>Hacktiv 8 Image Uploader</title>
 </head>
-<body>
-  <form class="" action="index.html" method="post">
-    Email: <input type="text" name="" value="" placeholder="enter email address" required>
-    Name: <input type="text" name="" value="" placeholder="enter name address" required>
-  </form>
+<body onload="">
+  <div id="app">
+    <section class='get-token'>
+      <form class="" action="" method="post">
+        Email: <input type="text" name="" value="" placeholder="enter email address" v-model="email">
+        Name: <input type="text" name="" value="" placeholder="enter name address" v-model="name">
+        <button type="button" name="button" @click="getToken">Get Token</button>
+      </form>
+    </section>
+
+    <div id="app">
+      <form class="" action="index.html" method="post">
+        <input type="file" name="" @change="onFileChanged">
+        <button type="button" name="button" @click="onUpload">Upload</button>
+      </form>
+    </div>
+
+    <button type="button" name="button" @click="loadImages">Get Images</button>
+
+    <section class="images">
+      <div class="" v-for="imageSrc in imagesSrc">
+        <img alt="" v-bind:src="imageSrc.url">
+      </div>
+    </section>
+
+
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
